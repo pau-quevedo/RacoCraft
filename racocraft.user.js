@@ -61,14 +61,25 @@
         const splashTexts = [
             "Should have never happened",
             "Also try MommyASMR!",
-            "Now with Multiprocessadors!",
-            "El Racó Premium!",
+            "El RacóCraft!",
             "Made by liceb_niek!",
             "Puta fib",
             "67🥀🥀🥀",
             "peak18f45k22",
             "😭😭😭😭😭😭",
-            "eeee eee eeeeeeeeee"
+            "eeee eee eeeeeeeeee - Sans",
+            "Què succeeix?",
+            "Drop table 'life'",
+            "Also try studying!",
+            "Skibidi FIBer!", // a partir daqui son totes d'un chat amb el gemini, quina bendició de missatges
+            "What the sigma is PRO2?",
+            "Rizzing up the Atenea server",
+            "Mewing during the SO control",
+            "Fanum tax on your ECTS!",
+            "Based and Segfault-pilled!",
+            "Looksmaxxing at the FIB bar!",
+            "Debugging in Ohio!",
+            "My GPA is cooked fr fr"
         ];
 
         // Pick a random text
@@ -104,7 +115,11 @@
             "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTUwZHQ5anAzNnRmb2trZDc2MXo1bmpwMG1zajIycnJ0cWF3M3l5ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IfPE0x5gfa5ctKpph6/giphy.gif",
             "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZndjOTVtYnZlNDY2bG9vbHl6NjQzajI5bWhoamNrNG5zbHR3bWFvdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/D63HGAzG15LQrjBPRE/giphy.gif",
             "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnpyY290eHJsYmprbTR0N2tuNHhrdG5hd2U3dmdrcTdzZ2V0OWdtMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/s5wFafpHxqKbIEERl9/giphy.gif",
-            "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM25oMG5wdjJua3VvcHB4ODF5aDFtNTdqZWg1NmliaGM4dHVzMTZ1eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wKJSRY2OgYx2m6R4oA/giphy.gif"
+            "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM25oMG5wdjJua3VvcHB4ODF5aDFtNTdqZWg1NmliaGM4dHVzMTZ1eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wKJSRY2OgYx2m6R4oA/giphy.gif",
+            "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExazI4M2ZnbnAzNmc3NGppeTY2NDdoZ2dnbmtvb3dueXBlYW0ybnJkMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fYShjUkJAXW1YO6cNA/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODM1cDduMHRtd3R5dGltbThybTFjODExbnNhZW55NGpsZnZ3YmYwNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/0mnJ2b9aURW87xcFwG/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODM1cDduMHRtd3R5dGltbThybTFjODExbnNhZW55NGpsZnZ3YmYwNyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/gvnBUe6e3ZRxC/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dzhiZGM1dWUyNzQzbGltYnIwZzN0bmljdDBleXBzODV5cml6eDAyMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/soBMAXm3umWxErwzxx/giphy.gif"
         ];
 
         // Pick a random text
@@ -209,4 +224,5 @@
     if (splashText) {
         addSplashText();
     }
+
 })();

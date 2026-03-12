@@ -43,7 +43,7 @@ right_button = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAA8CAYAAABSD1
     if minecraftFont {
         * {
             font-family: 'Minecraft', sans-serif !important;
-            font-style: italic;
+            /*font-style: italic;*/
         }
         .rightlinks {
             width: 29.8em !important;
@@ -348,4 +348,5 @@ right_button = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAA8CAYAAABSD1
         text-align: center;
         content: "El Racó Premium ha estat creat per la Nara Díaz and heavily editat per liceb_niek :)";
     }
+
 }

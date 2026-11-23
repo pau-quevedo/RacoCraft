@@ -1,13 +1,13 @@
 /* ==UserStyle==
 @name           RacòCraft
 @namespace      github.com/pau-quevedo/RacoCraft
-@version        3.0.1
+@version        3.1.0
 @description    Should have always happened
 @author         Liceb Niek
 @preprocessor   stylus
 
 @var  checkbox    minecraftFont      "Minecraft font"                     1
-@var  checkbox    minecraftCursor    "Your cursor is now a pickaxe"       1
+@var  select      minecraftCursor    "Change cursor look"                 ["none", "pickaxe*", "sword"]
 @var  checkbox    backgrounds        "Minecraft background"               1
 @var  checkbox    splashText         "Splash texts in the logo"           1
 @var  checkbox    avisosMinecraft    "Avisos Minecraft style"             1
@@ -15,6 +15,7 @@
 @var  checkbox    calendariMinecraft "Calendari amb blocs de Minecraft"   1
 @var  checkbox    horariMinecraft    "Horari i avisos dintre d'un llibre" 1
 @var  range       steveBlackSize     "Max Steve height" [300, 0, 1000, 50, "px"]
+
 ==/UserStyle== */
 
 @-moz-document domain("raco.fib.upc.edu") {
@@ -23,6 +24,9 @@
     if minecrftCursor {
         diamond_pickaxe = "https://minecraft.wiki/images/Invicon_Diamond_Pickaxe.png?e3d24"; //"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAABa0lEQVRYR+2Vv0rDUBSHv0iRFsEhEimijaKC4GKXDi52DYKTPoCboiBScPABxEFfwYKrD9C1Djp0sUuh0MWGDkKpg1B0EOIgR9IkxTTVeqn9ttz84Zzvnt8N/Hc070I3JjcyjnctiJfbUuhvAox5FwaNr9q9rZQDUH96BeAusQDA3PkJAO/NZ/fjxAwdgPiSCUBt+wB6MKGegZXUhAOwa80CcLWZ67hfz511XAvjM9PQQ+eCegbiy/MOgHl5Cq49Th3tA1AoNX3v9IM6BqTzxesLcE27dngMQHZtClzp+CkT6hmQvZdpf6s9agSko/jwaahfE39uIHQBVbutVe22li80yBcamMkEZjKBlTEcK2OE+k8EEbqA38JXQMzQv7IfhJgollsUyy2yaZ1sWo9swlfAoPGlYPX+BoDK+g64UtANSUfUc0IdA4KY+K5zL1HPCfUM9EuvMzF8BoSwMzG8BgQxIVTttloGRoz4AJoqgYAgg1JVAAAAAElFTkSuQmCC";
         enchanted_diamond_pickaxe = "https://minecraft.wiki/images/thumb/Enchanted_Diamond_Pickaxe.gif/32px-Enchanted_Diamond_Pickaxe.gif?c7aaa";
+        
+        diamond_sword = "https://minecraft.wiki/images/Diamond_Sword_JE3_BE3.png?24296";
+        enchanted_diamond_sword = "https://minecraft.wiki/images/Enchanted_Diamond_Sword.gif?f741f";
     }
     dirt = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/3/3d/Dirt_(texture)_JE2_BE2.png"
     if calendariMinecraft {
@@ -73,7 +77,7 @@
         }
     }
     
-    if minecraftCursor {
+    if minecraftCursor != "none" {
         html:has(#mc-custom-cursor), 
         html:has(#mc-custom-cursor) body, 
         html:has(#mc-custom-cursor) *, 
@@ -103,6 +107,25 @@
 
         #mc-custom-cursor.enchanted {
             background-image: url(enchanted_diamond_pickaxe);
+        }
+        
+        if minecraftCursor == "pickaxe" {
+            #mc-custom-cursor {
+                background-image: url(diamond_pickaxe);
+            }
+
+            #mc-custom-cursor.enchanted {
+                background-image: url(enchanted_diamond_pickaxe);
+            }
+        } 
+        else if minecraftCursor == "sword" {
+            #mc-custom-cursor {
+                background-image: url(diamond_sword);
+            }
+
+            #mc-custom-cursor.enchanted {
+                background-image: url(enchanted_diamond_sword);
+            }
         }
         
         @keyframes mineSwing {
@@ -496,8 +519,6 @@
         }
     }
 }
-
-
 
 
 

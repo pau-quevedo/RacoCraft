@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RacóCraft
 // @description  helo
-// @version      1.67
+// @version      3.0 release
 // @match        https://raco.fib.upc.edu/*
 // @grant        none
 // ==/UserScript==
@@ -363,3 +363,4 @@
     }
 
 })();
+

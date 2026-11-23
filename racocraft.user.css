@@ -15,18 +15,6 @@
 @var  checkbox    calendariMinecraft "Calendari amb blocs de Minecraft"   1
 @var  checkbox    horariMinecraft    "Horari i avisos dintre d'un llibre" 1
 @var  range       steveBlackSize     "Max Steve height" [300, 0, 1000, 50, "px"]
-
-@var text     fontSize   "Font size"    2.1em
-@var color    fontColor  "Font color"   #123456
-@var select   fontName   "Font name"    ["Arial", "Consolas*", "Times New Roman"]
-@var select   fontBkgd   "Body background color"   {
-  "Near Black": "#111111",
-  "Near White*": "#eeeeee"
-}
-@var text     bkgdImg    "Bkgd image"   "'http://example.com/bkgd.jpg'"
-@var text     logoImg    "Logo image"   none
-@var number   adOpacity  "Ad opacity"       [0.5, 0, 1, 0.1]
-
 ==/UserStyle== */
 
 @-moz-document domain("raco.fib.upc.edu") {
@@ -503,3 +491,4 @@
         }
     }
 }
+

@@ -1,4 +1,4 @@
-Dos scripts per canviar com es veu el Racó.
+Dos scripts per canviar el Racó perquè es vegi com Mojang esperaria.
 
 ## Procés d'intal·lació
 

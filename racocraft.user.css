@@ -74,7 +74,11 @@
     }
     
     if minecraftCursor {
-        html, body, *, a, button {
+        html:has(#mc-custom-cursor), 
+        html:has(#mc-custom-cursor) body, 
+        html:has(#mc-custom-cursor) *, 
+        html:has(#mc-custom-cursor) a,
+        html:has(#mc-custom-cursor) button {
             cursor: none !important;
         }
 
@@ -492,6 +496,7 @@
         }
     }
 }
+
 
 
 

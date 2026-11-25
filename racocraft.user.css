@@ -6,14 +6,14 @@
 @author         Liceb Niek
 @preprocessor   stylus
 
+@var  text        mcUsername         "El teu username del Minecraft"      "liceb_niek"
 @var  checkbox    minecraftFont      "Font del Minecraft"                 1
 @var  select      minecraftCursor    "Canvia l'aspecte del cursor"        ["none", "pickaxe*", "sword"]
 @var  checkbox    backgrounds        "Minecraft background"               1
-@var  checkbox    splashText         "Splash texts in the logo"           1
-@var  checkbox    avisosMinecraft    "Avisos Minecraft style"             1
+@var  checkbox    splashText         "Splash texts al logo"               1
+@var  checkbox    avisosMinecraft    "Botons als avisos"                  1
 @var  checkbox    perfilMinecraft    "Perfil del minecraft"               1
-@var  text        mcUsername         "El teu username del Minecraft"      "liceb_niek"
-@var  checkbox    calendariBlocs     "Calendari amb blocs de Minecraft"   1
+@var  checkbox    calendariBlocs     "Calendari amb blocs"                1
 @var  checkbox    llibreHorariAvisos "Horari i avisos dintre d'un llibre" 1
 @var  select      companionType      "Selecciona el teu companion"        {"none":"none", "Jack Black":"Jack_Black", "La teva Skin*":"La_teva_skin"}
 @var  range       companionSize      "Max companion height"               [300, 0, 1000, 50, "px"]

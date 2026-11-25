@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           RacòCraft
 @namespace      github.com/pau-quevedo/RacoCraft
-@version        3.2
+@version        3.2.1
 @description    Should have always happened
 @author         Liceb Niek
 @preprocessor   stylus
@@ -12,10 +12,22 @@
 @var  checkbox    splashText         "Splash texts in the logo"           1
 @var  checkbox    avisosMinecraft    "Avisos Minecraft style"             1
 @var  checkbox    perfilMinecraft    "Perfil del minecraft"               1
-@var  text        mcUsername         "Minecraft username"                 "notch"
+@var  text        mcUsername         "Minecraft username"                 "liceb_niek"
 @var  checkbox    calendariMinecraft "Calendari amb blocs de Minecraft"   1
 @var  checkbox    horariMinecraft    "Horari i avisos dintre d'un llibre" 1
-@var  range       steveBlackSize     "Max Steve height" [300, 0, 1000, 50, "px"]
+@var  select      companionType      "Selecciona el teu companion"        ["none", "Jack_Black", "La_teva_skin*"]
+@var  range       companionSize      "Max companion height"               [300, 0, 1000, 50, "px"]
+
+
+@var text     fontSize   "Font size"    2.1em
+@var color    fontColor  "Font color"   #123456
+@var select   fontBkgd   "Body background color"   {
+  "Near Black": "#111111",
+  "Near White*": "#eeeeee"
+}
+@var text     bkgdImg    "Bkgd image"   "'http://example.com/bkgd.jpg'"
+@var text     logoImg    "Logo image"   none
+@var number   adOpacity  "Ad opacity"       [0.5, 0, 1, 0.1]
 
 ==/UserStyle== */
 
@@ -29,15 +41,15 @@
         diamond_sword = "https://minecraft.wiki/images/Diamond_Sword_JE3_BE3.png?24296";
         enchanted_diamond_sword = "https://minecraft.wiki/images/Enchanted_Diamond_Sword.gif?f741f";
     }
-    dirt = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/3/3d/Dirt_(texture)_JE2_BE2.png"
+    dirt = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/3/3d/Dirt_(texture)_JE2_BE2.png";
     if calendariMinecraft {
         clouds = "https://www.lyncconf.com/wp-content/uploads/2018/12/Clouds.png";
-        grass_block = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/3/3b/Grass_Block_(side_texture)_JE2_BE2.png"
-        stone = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/dc/Stone_(texture)_JE5_BE3.png"
+        grass_block = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/3/3b/Grass_Block_(side_texture)_JE2_BE2.png";
+        stone = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/dc/Stone_(texture)_JE5_BE3.png";
 
-        target_block = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5a/Target_(top_texture)_JE1_BE1.png"
+        target_block = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5a/Target_(top_texture)_JE1_BE1.png";
 
-        diamond_ore = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c0/Diamond_Ore_(texture)_JE5_BE5.png"
+        diamond_ore = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c0/Diamond_Ore_(texture)_JE5_BE5.png";
         emerald_ore = "https://minecraft.wiki/images/BlockSprite_emerald-ore.png?86a5d";//"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAAC1ElEQVR4Xu2bP2hTURTGfWIRTYQo1QjPgkghIAZ1cVPoUsRBxMHJuij6QDcf6CAEJzsIWYpGBAexs+DQwUU0uLiIRFwsXeRRHooETCz+Q+fv96CHS93O/W3fSXpfejjn3Hu/pkm32/27aQMMh0PR4/FYNKnVaqL5/tFoJLper4smXC+UzQx4IyaAAW8knU5n3Rkw+PKOIaE9eVh0o9EQHQpnivX8PX/2iubM4IzgzHFfATEBDHijMgPYc3cWHoo+sXJD9Nz9XaIJe5CwJ1fWlkVbz88eT4kOxX0FxAQw4I3KDCC9C59El4+WRHe2XBFNOFNCzw3zpwei+fzupM6EoihEW7ivgJgABryR5HkuM8Datwl7uL/8UnQx/Cr65PSMaML1QuEMsH4f9xUQE8CANyrnAPYg7+d8nTy7tL4n+HFxUfSxQUv0gW3ToonlGVqvp2kq2n0FxAQw4A3zHFCWpei33z6I3t6bFd2r692gdastet/UTtFpf7donhPoF/DzEd49CO8i7isgJoABb1RmAD05wrM9Z8CL+QXR7Plfbd2H99/7KTptqMdonQv4eUM9RPcVEBPAgDeSs1fPyAwI7aHe7GvREwO9j19fuyya8P5OrH2fWB5m/uO8aPcVEBPAgDcqfoDVQ/ThLegnEPoLfL91tuf3A1ot9RcI13dfATEBDHgjybJMZgB7iPu0tS9bPU1/odlsin6VT4gm37Pnoo/uOCiaHqCF+wqICWDAG5VzwP/Gmgm3fz8QPXPzmuhQj/Hi6jnRhJ/HfQXEBDDgjcoMoA9vQU+O0Ifn+ne3PhHdPHVIdLn0XjR7nh7j3NMjoq2/FbqvgJgABryRWP8zxH2b9/NQD5EzgPRX34gujn8WvVGPMX4/AMQEMOCN4HMA/YBQD5Ezhf4A/QjCnyc861u4r4CYAAa8UZkBoVg9Z+3LnCnWeoQzgTOM6xP3FRATwIA3/gGflBtbyjfofAAAAABJRU5ErkJggg=="
         redstone_ore= "https://minecraft.wiki/images/BlockSprite_redstone-ore.png?38633";
         lapis_ore   = "https://minecraft.wiki/images/BlockSprite_lapis-lazuli-ore.png?ee4fc";
@@ -304,7 +316,9 @@
             height: 0;
             padding-bottom: 80px;
             padding-right: 80px;
-            background-image: url("https://mc-heads.net/avatar/" + mcUsername + "/80");
+            background-image: url("https://minotar.net/helm/"+mcUsername+"/80");
+                /* feu servir aquesta altre api si no funciona:
+                   url("https://api.mcheads.org/head/" + mcUsername + "/80"); */
             background-position: center;
             background-size: cover;
         }
@@ -495,24 +509,16 @@
         }
     }
     
-    #footer::before {
-        display: block;
-        padding-bottom: 0.5em;
-        text-align: center;
-        content: "El Racó Premium ha estat creat per la Nara Díaz and heavily editat per liceb_niek :)";
-    }
-    
-    if not steveBlackSize == 0 {
+    if companionType != "none" {
         body::after {
             content: "";
             position: fixed; 
             bottom: -5vh;
             right: 3vh;
-            width: steveBlackSize;
-            height: steveBlackSize;
+            width: companionSize;
+            height: companionSize;
             --image-rendering: pixelated;
 
-            background-image: url(https://minecraft.wiki/images/AMCM_Steve.png?82619);
             background-size: contain;
             background-position: bottom right;
             background-repeat: no-repeat;
@@ -521,5 +527,22 @@
 
             pointer-events: none;
         }
+        if companionType == "Jack_Black" {
+            body::after {
+                background-image: url(https://minecraft.wiki/images/AMCM_Steve.png?82619);
+            }
+        }
+        else {
+            body::after {
+                background-image: url("https://api.mcheads.org/avatar/"+mcUsername+"/left/256");
+            }
+        }
+    }
+    
+    #footer::before {
+        display: block;
+        padding-bottom: 0.5em;
+        text-align: center;
+        content: "El Racó Premium ha estat creat per la Nara Díaz and heavily editat per liceb_niek :)";
     }
 }

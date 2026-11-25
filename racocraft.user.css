@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           RacòCraft
 @namespace      github.com/pau-quevedo/RacoCraft
-@version        3.1.0
+@version        3.1.1
 @description    Should have always happened
 @author         Liceb Niek
 @preprocessor   stylus
@@ -193,6 +193,9 @@
             margin-bottom: 0;
             padding: 8px;
         }
+        body:has(a.menu) .sidebar_right .dintre {
+            background-color: #f6f6f6;
+        }
     }
 
     if splashText {
@@ -245,6 +248,20 @@
     }
     
     if avisosMinecraft {
+        .caixa, .caixa .dintre {
+            padding: 0px !important;
+        }
+        .caixa .dintre .avis  {
+            background-image:    url(bl),     url(br),      url(tl),    url(tr),    url(bm),        url(tm),    url(ml),        url(mr),        url(mm); 
+            background-position: left bottom, right bottom, left top,   right top,  center bottom,  center top, left center,    right center,   center center;  
+            background-repeat:   no-repeat,   no-repeat,    no-repeat,  no-repeat,  repeat-x,       repeat-x,   repeat-y,       repeat-y,       repeat;
+
+            image-rendering: pixelated;
+            padding: 10px 20px 10px 15px !important;
+            border: none !important;
+        }
+
+        
         #widgetize1 .text.avisos h4 {
             background-image: url(left_button), url(right_button), url(middle_button) !important;
             background-position: left center, right center, center center !important;
@@ -449,8 +466,7 @@
         }
         .calendari td.coses.canviHorari:not(.avui) a:hover {
             color: #b9be20;
-        }
-        
+        }   
     }
     
     if horariMinecraft {
@@ -485,19 +501,6 @@
         content: "El Racó Premium ha estat creat per la Nara Díaz and heavily editat per liceb_niek :)";
     }
     
-    .caixa, .caixa .dintre {
-        padding: 0px !important;
-    }
-    .caixa .dintre .avis  {
-        background-image:    url(bl),     url(br),      url(tl),    url(tr),    url(bm),        url(tm),    url(ml),        url(mr),        url(mm); 
-        background-position: left bottom, right bottom, left top,   right top,  center bottom,  center top, left center,    right center,   center center;  
-        background-repeat:   no-repeat,   no-repeat,    no-repeat,  no-repeat,  repeat-x,       repeat-x,   repeat-y,       repeat-y,       repeat;
-
-        image-rendering: pixelated;
-        padding: 10px 20px 10px 15px !important;
-        border: none !important;
-    }
-    
     if not steveBlackSize == 0 {
         body::after {
             content: "";
@@ -519,7 +522,3 @@
         }
     }
 }
-
-
-
-

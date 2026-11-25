@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           RacòCraft
 @namespace      github.com/pau-quevedo/RacoCraft
-@version        3.1.1
+@version        3.2
 @description    Should have always happened
 @author         Liceb Niek
 @preprocessor   stylus
@@ -11,7 +11,8 @@
 @var  checkbox    backgrounds        "Minecraft background"               1
 @var  checkbox    splashText         "Splash texts in the logo"           1
 @var  checkbox    avisosMinecraft    "Avisos Minecraft style"             1
-@var  checkbox    perfilMinecraft    "Perfil del goat liceb_niek"         1
+@var  checkbox    perfilMinecraft    "Perfil del minecraft"               1
+@var  text        mcUsername         "Minecraft username"                 "notch"
 @var  checkbox    calendariMinecraft "Calendari amb blocs de Minecraft"   1
 @var  checkbox    horariMinecraft    "Horari i avisos dintre d'un llibre" 1
 @var  range       steveBlackSize     "Max Steve height" [300, 0, 1000, 50, "px"]
@@ -46,10 +47,7 @@
         coal_ore    = "https://minecraft.wiki/images/BlockSprite_coal-ore.png?4c30c"; //"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAHlBMVEV/f3+Pj490dHRoaGhcXFxJSz85PDY2NjYuLi4lJSVYKuP9AAAAdklEQVR42gXBgQHAIAzDMMdkhf7/8CSSBMWjAIBIWzinCJ5jd27lXYAqb+73FlTcq/btVgVIkCTaHoPBqjhvCli78wqdj4TIzncfoiLEvltNoIVDbBG1OwdoLUirCt3v7ib9Zj2H2NmqvVsFVLgPCiSASiQB4Qdt9QKv63TjNgAAAABJRU5ErkJggg=="
     }
     if backgrounds {
-        bedrock = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAIzSURBVHhe7dsxjiJBDIXh7Y2QSCFETcYFCMk5BCcl5xCQgQiJkch2U/xVYJVmMtef2V1dPbL8bFfTMx0Oh39/vng+n99mN+v1Oti73S7Yj8cj2J/PJ9iuv91uwX69XsEWn+96r/8NVkFGAHRUY5rnOdSAzWbzbTbM8xxsNd17/XK5BPtwOARb3O96vQZ7uVwGW81bE8pnwAiAjmo0NeD9fn+bjaakd72oeWuCGs7I5ojFYhHs8hkwAqCjGtN+vw81QA3Zd8VZ/n6/B3u73Qbb/dWo2Ld/ijWlfAaMAOioxrRarUINsI9nfboXNZhp3LOJZwnJapbvO8pnwAiAjmo0ZwE1mqGGs/tdL54tnCOkdz9rXPkMGAHQUY3pdDqFGiD2VWd/z9e9ffq393O9c4s1oXwGjADoqEbzPiDDvpv1ffF+UaP2bfH57u9ZwppTPgNGAHRUY/L7APuo+A5PzYkald/u+72Uz4ARAB3VaOaATNNZn1bz7pddz/q26zN8p2kNKZ8BIwA6qtHMAWKf9XytZl0v3p/VFDWcocb9HUDKZ8AIgI5qNL8NZu/hJevL9v3e2d+zh/dLtt/5fA52+QwYAdBRje6zgDgH9M7u3q+GnRt+ijWpfAaMAOioRnMWUIPO1l63T2ffCWY1QbKzgpp2TvDvlfIZMAKgoxpNDZDevq4me9f3atga1Pu88hkwAqCjGs13glnfFdcfj8dgi3OF7+zUqDUh+z9ByfYrnwEjADqq8R/4cwamfjaLWgAAAABJRU5ErkJggg=="
-    }
-    if perfilMinecraft {
-        liceb_face = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAABeElEQVR4Xu3cMUoDURRGYSeKRWDaZAHB3ja9C8gOLG2sXYSlGxBBxMbewg3YZwOKhaSJMBCJKNpfbnHlhBHi+cqfEMjhNY9k0jxNJt87BbujUZy22tdiEafUIA76HQNCBoQMCBkQMiBkQMiAkAGh5mU6/Vc3kb3i51jP53FKeQIhA0IGhAwIGRAyIGRAyICQAaHyTeR4OIzTVrtareKU8gRCBoQMCBkQMiBkQMiAkAEhA0LNbDYr3UTOru/ilDocrOPUi/uP/Tilbs5v45RaPl7GKeUJhAwIGRAyIGRAyICQASEDQgaENn4Tef0svd2fqd5Enh8u4pTyBEIGhAwIGRAyIGRAyICQASEDQuWbyMHRSZxSy+49Tr1462q/pqryO5GeGBAyIGRAyICQASEDQgaEDAiVnxM5HY/jlOq6Lk6p6us2rW3bOKV8TqQnBoQMCBkQMiBkQMiAkAEhA0KN/+Kb8198e2JAyICQASEDQgaEDAgZEDIg9APBN0EVBwlRAgAAAABJRU5ErkJggg=="
+        bedrock = "https://minecraft.wiki/images/BlockSprite_bedrock.png?75357";//"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAIzSURBVHhe7dsxjiJBDIXh7Y2QSCFETcYFCMk5BCcl5xCQgQiJkch2U/xVYJVmMtef2V1dPbL8bFfTMx0Oh39/vng+n99mN+v1Oti73S7Yj8cj2J/PJ9iuv91uwX69XsEWn+96r/8NVkFGAHRUY5rnOdSAzWbzbTbM8xxsNd17/XK5BPtwOARb3O96vQZ7uVwGW81bE8pnwAiAjmo0NeD9fn+bjaakd72oeWuCGs7I5ojFYhHs8hkwAqCjGtN+vw81QA3Zd8VZ/n6/B3u73Qbb/dWo2Ld/ijWlfAaMAOioxrRarUINsI9nfboXNZhp3LOJZwnJapbvO8pnwAiAjmo0ZwE1mqGGs/tdL54tnCOkdz9rXPkMGAHQUY3pdDqFGiD2VWd/z9e9ffq393O9c4s1oXwGjADoqEbzPiDDvpv1ffF+UaP2bfH57u9ZwppTPgNGAHRUY/L7APuo+A5PzYkald/u+72Uz4ARAB3VaOaATNNZn1bz7pddz/q26zN8p2kNKZ8BIwA6qtHMAWKf9XytZl0v3p/VFDWcocb9HUDKZ8AIgI5qNL8NZu/hJevL9v3e2d+zh/dLtt/5fA52+QwYAdBRje6zgDgH9M7u3q+GnRt+ijWpfAaMAOioRnMWUIPO1l63T2ffCWY1QbKzgpp2TvDvlfIZMAKgoxpNDZDevq4me9f3atga1Pu88hkwAqCjGs13glnfFdcfj8dgi3OF7+zUqDUh+z9ByfYrnwEjADqq8R/4cwamfjaLWgAAAABJRU5ErkJggg=="
     }
     if avisosMinecraft {
         left_button = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAA8CAYAAABSD1tKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAAA20lEQVRIS8WWbQqDMBBEk/hx4dzKe3gSbyFq+qvDRDp0lxV8MCAJj1maEJpTSi05KPeFf7iFzCMty9Lv/sDd4BbkSOu64ptxNzwntNaQ4zgQKShiwnVdSM4ZmaYJiTVY6IRSCqLQO4KYwAfEB8eJNVjohHEcEeY8TyTWYEEKfK/4QKWgiAl8pYdhQHg91mChE+735psXR2J4jBevt4UXBfVGSUHxnMAjzfOMSEHxnMDP5r7viBQUMYHfIrUea7DQ/TmptWJj2zZ8M+6GmMAHpIg1WOh+JQvuBrfwAevKn2Jzf42rAAAAAElFTkSuQmCC";
@@ -175,8 +173,11 @@
             background-repeat: repeat;
             background-position: bottom left;
             background-size: 5%; 
+            image-rendering: pixelated;
+            
         }
         #footer, .footer { 
+            image-rendering: pixelated;
             background-image: url(bedrock);
             background-repeat: repeat;
             background-position: top left;
@@ -303,7 +304,7 @@
             height: 0;
             padding-bottom: 80px;
             padding-right: 80px;
-            background-image: url(liceb_face);
+            background-image: url("https://mc-heads.net/avatar/" + mcUsername + "/80");
             background-position: center;
             background-size: cover;
         }
@@ -315,7 +316,7 @@
         
         .pestanya_usuari .nom a::before {
             padding-top: 3px;
-            content: "liceb_niek";
+            content: "" + mcUsername;
             font-size: 16px !important;
         }
         
